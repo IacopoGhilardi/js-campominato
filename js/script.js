@@ -67,14 +67,6 @@ function arrGenerator(maxLength) {
     }
 
     return arr;
-
-
-    // while(arr.length < maxLength) {
-    //     var arg = randomNumber(1, 100);
-    //     if (arr.includes(arg)) {
-    //         arr.push(arg);
-    //     }
-    // }
 }
 
 // function arrGenerator(maxLength, func) {
