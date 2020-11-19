@@ -46,7 +46,7 @@ function game(maxNum, arr) {
     var count = 0;
     var userInput = parseInt(prompt("Un numero da 1 a 100"));
 
-    while (count < maxNum && (!arr.includes(userInput))) {
+    while (count < maxNum && !arr.includes(userInput)) {
         count++;
         console.log(count);
         userInput = parseInt(prompt("Un numero da 1 a 100"));
@@ -66,4 +66,7 @@ console.log(randomArr);
 numbers = 100 - randomArr.length;
 console.log(numbers);
 
-console.log(game(4, randomArr));
+score = game(4, randomArr);
+
+console.log(score);
+
