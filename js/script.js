@@ -29,7 +29,9 @@ function randomNumber(min, max) {
 
 
 // genero 16 numeri random senza duplicati
-function arrGenerator(arr, num) {
+function arrGenerator(num) {
+
+    var arr = [];
 
     for (var i = 0; i < num; i++) {
         var random = randomNumber(1, 100);
@@ -39,6 +41,8 @@ function arrGenerator(arr, num) {
         }
         arr.push(random);
     }
+
+    return arr;
 
 }
 
@@ -69,10 +73,10 @@ function game(maxNum, arr) {
 
 //--------------------------------------------------------------------------
 
-var randomArr = [];
+var randomArr = arrGenerator(16);
 var userArr = [];
 
-arrGenerator(randomArr, 16);
+
 
 console.log(randomArr);
 
