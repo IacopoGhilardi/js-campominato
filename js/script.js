@@ -13,9 +13,6 @@
 
 
 
-
-
-
 var maxNumber;
 var difficult = prompt("Seleziona la difficoltà tra 0, 1 o 2");
 
@@ -42,7 +39,7 @@ var score = 0;
 
 //gioco
 var gameOver = false;
-while(attempts.length < maxAttempts && gameOver == false) {
+while(attempts.length < 2 && gameOver == false) {
 
     var userInput = parseInt(prompt("Inserisci un numero da 1 e " + maxNumber));
 
@@ -58,13 +55,6 @@ while(attempts.length < maxAttempts && gameOver == false) {
 }
 
 score == maxAttempts ? alert("hai vinto, punteggio: " + score) : alert("hai perso, punteggio: " + score);
-
-
-
-
-
-
-
 
 //  FUNCTION
 //--------------------------------------------------------------------------
