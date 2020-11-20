@@ -14,27 +14,43 @@
 
 
 
-var randomArr = arrGenerator(16);
-var userArr = [];
 
-
+var randomArr = randomArrGenerator(16);
 
 console.log(randomArr);
 
 numbers = 100 - randomArr.length;
-console.log(numbers);
 
-score = game(4, randomArr);
+var difficult = prompt("Seleziona la difficoltà tra 0, 1 o 2");
+
+switch (difficult) {
+        case "0":
+                score = play(4, randomArr);
+                break;
+        case "1":
+                score = play(5, randomArr);
+                break;
+        case "2":
+                score = play(6, randomArr);
+                break;
+        default:
+                score = play(4, randomArr);
+                break;
+    
+}
 
 
-score == numbers ? alert("Congratulazioni hai vinto") : alert("Mi dispiace hai perso, il tuo punteggio è: " + score);
-console.log(score);
+
+score == 4 ? alert("Congratulazioni hai vinto il tuo punteggio è " + score) : alert("Mi dispiace hai perso, il tuo punteggio è: " + score);
+
+
+
+
+
 
 
 //  FUNCTION
 //--------------------------------------------------------------------------
-
-
 
 //creo la funzione che mi generi un numero random
 function randomNumber(min, max) {
@@ -43,70 +59,48 @@ function randomNumber(min, max) {
 
 //includes function
 // function isIncludesInArray(arg, arr) {
-//
+//      var include = false
 //     for(var k = 0; k < arr.length; k++) {
 //         if (arr[k] == arg) {
-//             return true;
-//         } else return false;
+//             include = true;
+//         }
 //     }
+//      return include;
 // }
 
 
 // genero 16 numeri random senza duplicati
-function arrGenerator(maxLength) {
-
+function randomArrGenerator(maxLength) {
     var arr = [];
 
-    for (var i = 0; i < maxLength; i++) {
+    while(arr.length < maxLength) {
         var arg = randomNumber(1, 100);
     
-        while (arr.includes(arg)) {
-            arg = randomNumber(1, 100);
+        if (!arr.includes(arg)) {
+            arr.push(arg);
         }
-        arr.push(arg);
     }
-
     return arr;
+
 }
-
-// function arrGenerator(maxLength, func) {
-
-//     var arr = [];
-
-//     for (var i = 0; i < maxLength; i++) {
-//         var arg = func();
-    
-//         while (arr.includes(arg)) {
-//             alert('Non puoi inserire due numeri uguali');
-//             arg = func();
-//         }
-//         arr.push(arg);
-//     }
-
-//     return arr;
-
-// }
-
 
 
 //funzione che esegue il gioco
-function game(maxNum, arr) {
+function play(maxNum, arr) {
 
     var count = 0;
-    var userInput = parseInt(prompt("Un numero da 1 a 100"));
     var userArray = [];
+    var userInput = parseInt(prompt("Un numero da 1 a 100"));
 
-
-    while(count < maxNum && !arr.includes(userInput)) {
-
-        if (userArray.includes(userInput)) {
-            alert('Non puoi inserire due numeri uguali');
-            userInput = parseInt(prompt("Inserisci un numero da 1 a 100"));
-        } else {
+    while(userArray.length < maxNum && !arr.includes(userInput)) {
+               
+           if (!userArray.includes(userInput)) {
             userArray.push(userInput);
             count++;
-            console.log(count);
-            userInput = parseInt(prompt("Un altro numero da 1 a 100"));
+            userInput = parseInt(prompt("Un numero da 1 a 100"));
+        } else {
+            alert ("Non puoi inserire due numeri uguali, riprova");
+            userInput = parseInt(prompt("Un numero da 1 a 100"));
         }
     }
     
