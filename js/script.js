@@ -43,13 +43,13 @@ switch (difficult) {
 
 
 //gioco
-var lose = false;
-while(attempts.length < maxAttempts && lose == false) {
+var gameOver = false;
+while(attempts.length < maxAttempts && gameOver == false) {
 
     var userInput = parseInt(prompt("Inserisci un numero da 1 a 100"));
 
     if (checkIfExistInArray(userInput, bombs)) {
-        lose = true;
+        gameOver = true;
     } else if (!checkIfExistInArray(userInput, attempts)) {
         score++;
         attempts.push(userInput);
