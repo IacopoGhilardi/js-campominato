@@ -15,52 +15,47 @@
 
 
 
-var bombs = randomArrGenerator(16);
-var score = 0;
-var maxAttempts = 100 - bombs.length;
-console.log(bombs);
-var attempts = [];
 
-
-
+var maxNumber;
 var difficult = prompt("Seleziona la difficoltà tra 0, 1 o 2");
 
 switch (difficult) {
-        case "0":
-                maxAttempts = 4;
-                break;
         case "1":
-                maxAttempts = 4;
+            maxNumber = 80;
                 break;
         case "2":
-                maxAttempts = 4;
+            maxNumber = 50;
                 break;
         default:
-                maxAttempts = 4;
+            maxNumber = 100;
                 break;
     
 }
+
+var bombs = randomArrGenerator(16);
+console.log(bombs);
+var attempts = [];
+var maxAttempts;
+maxAttempts = maxNumber - bombs.length;
+var score = 0;
 
 
 //gioco
 var gameOver = false;
 while(attempts.length < maxAttempts && gameOver == false) {
 
-    var userInput = parseInt(prompt("Inserisci un numero da 1 a 100"));
+    var userInput = parseInt(prompt("Inserisci un numero da 1 e " + maxNumber));
 
     if (checkIfExistInArray(userInput, bombs)) {
         gameOver = true;
-    } else if (!checkIfExistInArray(userInput, attempts)) {
+    } else if (!checkIfExistInArray(userInput, attempts) && userInput <= maxNumber && userInput > 0) {
         score++;
         attempts.push(userInput);
     } else {
-        alert ("Non puoi inserire due numeri uguali, riprova");
+        alert("Non puoi inserire due numeri uguali, riprova o un numero superiore al massimo richiesto");
     }
 
 }
-
-console.log(attempts);
-console.log(score);
 
 score == maxAttempts ? alert("hai vinto, punteggio: " + score) : alert("hai perso, punteggio: " + score);
 
@@ -79,6 +74,8 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
+
+
 //includes function
 function checkIfExistInArray(arg, arr) {
      var include = false
@@ -96,7 +93,7 @@ function randomArrGenerator(maxLength) {
     var arr = [];
 
     while(arr.length < maxLength) {
-        var arg = randomNumber(1, 100);
+        var arg = randomNumber(1, maxNumber);
     
         if (!checkIfExistInArray(arg, arr)) {
             arr.push(arg);
