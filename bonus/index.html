@@ -8,20 +8,20 @@
 </head>
 <body>
 
-    <h1>Campo Minato</h1>
+    <h1 id="title">Campo Minato</h1>
 
     <div class="difficult">
-        <span>Seleziona la difficoltà</span>
-        <select id="difficult" name="eta" required>
-            <option value="standard">0</option>
-            <option value="medium">1</option>
-            <option value="hard">2</option>
-        </select>
+        <h2>Seleziona la difficoltà</h2>
+        <div id="difficult" name="eta" required>
+            <button id="easy">Easy</button>
+            <button id="medium">Medium</button>
+            <button id="hard">Hard</button>
+        </div>
         <button id="play">Play</button>
     </div>
     
-    <div class="wrapper">
-        <div id="score">Score</div>
+    <div class="board-container">
+        <div id="score">Score: <span></span></div>
         <div class="board-game">
             <div class="lose">
                 <img src="https://www.smartdrivers.it/wp-content/uploads/2018/09/boom.png" alt="esplosion">
@@ -29,8 +29,6 @@
                 <button>Riprova</button>
             </div>
             <div id="cell-box">
-                <div class="cell">
-                </div>
             </div>
 
         </div>
@@ -38,6 +36,5 @@
 
 
     <script src="js/script.js"></script>
-    <script src="js/script-css.js"></script>
 </body>
 </html>

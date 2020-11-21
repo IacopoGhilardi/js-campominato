@@ -15,6 +15,7 @@
 
 var maxNumber;
 var difficult = prompt("Seleziona la difficoltà tra 0, 1 o 2");
+// var difficult = document.getElementById('difficult').value;
 
 switch (difficult) {
         case "1":
@@ -61,7 +62,7 @@ score == maxAttempts ? alert("hai vinto, punteggio: " + score) : alert("hai pers
 
 //creo la funzione che mi generi un numero random
 function randomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 

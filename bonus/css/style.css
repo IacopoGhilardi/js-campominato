@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(19, 53, 85);
+    text-align: center;
+}
+
+
+h1 {
+    font-size: 4rem;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    color: whitesmoke;
+}
+
+#play {
+    background: chartreuse;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    transition: 0.3s;
+    opacity: 0;
+}
+#play:hover {
+    cursor: pointer;
+    background-color: black;
+    color: chartreuse;
+}
+
+h2 {
+    font-size: 2rem;
+    color: white;
+    margin: 20px 0;
+}
+
+
+#difficult {
+    width: 50%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+#difficult button {
+    padding: 10px 30px;
+    border-radius: 30px;
+    background: none;
+    border: 3px solid chartreuse;
+    color: #80ff00;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#difficult button:hover {
+    background-color: chartreuse;
+    color: black;
+}
+
+.board-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+#score {
+    width: calc(70px * 10);
+    height: 60px;
+    background-color: black;
+    color: chartreuse;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    opacity: 0;
+}
+
+
+.board-game {
+    width: calc(70px * 10);
+    max-height: calc(70px * 10);
+    height: 300px;
+    position: relative;
+}
+
+#cell-box {
+    width: calc(70px * 10);
+    height: calc(70px * 10);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cell {
+    width: 70px;
+    height: 70px;
+    background-color: gray;
+    border: 1px solid black;
+    transition: .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    position: relative;
+    transition: all .3s;
+}
+
+.cell:hover {
+    cursor: pointer;
+    background-color: white;
+}
+
+.bomb img {
+    width: calc(100% - 2px);
+    max-height: calc(100% - 2px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+
+
+.lose {
+    position: absolute;
+    width: 100px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 1s;
+    z-index: 0;
+    display: none;
+}
+
+
+.lose img {
+    max-width: 100%;
+}
