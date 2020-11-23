@@ -27,7 +27,7 @@ switch (difficult) {
         default:
             maxNumber = 100;
                 break;
-    
+
 }
 
 var bombs = randomArrGenerator(16);
@@ -40,7 +40,7 @@ var score = 0;
 
 //gioco
 var gameOver = false;
-while(attempts.length < 2 && gameOver == false) {
+while(attempts.length < maxAttempts && gameOver == false) {
 
     var userInput = parseInt(prompt("Inserisci un numero da 1 e " + maxNumber));
 
@@ -85,7 +85,7 @@ function randomArrGenerator(maxLength) {
 
     while(arr.length < maxLength) {
         var arg = randomNumber(1, maxNumber);
-    
+
         if (!checkIfExistInArray(arg, arr)) {
             arr.push(arg);
         }
